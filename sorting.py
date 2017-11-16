@@ -89,8 +89,40 @@ def insertion_sort_recursive(arr, length):
     return arr
 
 
+def selection_sort_iterative(arr):
+    # destination is the position we want to fill after every iteration
+    for destination in range(len(arr)):
+        # selection is the index we select whose value is going to be swapped
+        # with the destination value
+        selection = destination
+        for temp in range(destination, len(arr)):
+            # Finding the minimum number after the destination index
+            # and putting that value in selection
+            if arr[temp] < arr[selection]:
+                selection = temp
+        # SWAP
+        arr[selection], arr[destination] = arr[destination], arr[selection]
+        # Iteration ends here with one more value in its designated position
+    return arr
+
+def selection_sort_recursive(arr, length):
+    if length == 1:
+        return arr
+    # Do part of the work
+    # lets find the highest value and swap it with the last index
+    selection = destination = length - 1
+    for temp in range(destination, -1, -1):
+        if arr[temp] > arr[selection]:
+            selection = temp
+    arr[selection], arr[destination] = arr[destination], arr[selection]
+    # Now we have the highest element in its place
+    # Lets use recursion to sort one at a time 
+    selection_sort_recursive(arr, length - 1)
+    return arr
+
 
 if __name__ == "__main__":
     arr = [2,3,6,9,4,1,52]
     #print insertion_sort_iterative(arr)
-    print insertion_sort_recursive(arr, len(arr))
+    #print selection_sort_iterative(arr)
+    print selection_sort_recursive(arr, len(arr))
