@@ -116,13 +116,42 @@ def selection_sort_recursive(arr, length):
             selection = temp
     arr[selection], arr[destination] = arr[destination], arr[selection]
     # Now we have the highest element in its place
-    # Lets use recursion to sort one at a time 
+    # Lets use recursion to sort one at a time
     selection_sort_recursive(arr, length - 1)
     return arr
 
 
+def partition(arr, start, end, pivot): # end -> upto and including
+    """ Return the index of the pivot after performing partition"""
+    smaller = equal = start
+    larger = end + 1
+    # Larger has to start from outside the end of the considered subarray
+    # since the entire array is unclassified in the beginning
+
+    while equal < larger:
+        if arr[equal] < pivot:
+            arr[equal], arr[smaller] = arr[smaller], arr[equal]
+            smaller += 1
+            equal += 1
+        elif arr[equal] == pivot:
+            equal += 1
+        else:
+            larger -= 1
+            arr[equal], arr[larger] = arr[larger], arr[equal]
+    return equal - 1
+
+def quicksort(arr, start, end):
+    if end <= start:
+        return arr
+    pivot = arr[end]
+    par = partition(arr, start, end, pivot)
+    quicksort(arr, start, par - 1)
+    quicksort(arr, par + 1, end)
+    return arr
+
 if __name__ == "__main__":
     arr = [2,3,6,9,4,1,52]
-    #print insertion_sort_iterative(arr)
-    #print selection_sort_iterative(arr)
-    print selection_sort_recursive(arr, len(arr))
+    # print insertion_sort_iterative(arr)
+    # print selection_sort_iterative(arr)
+    # print selection_sort_recursive(arr, len(arr))
+    print quicksort(arr, 0, len(arr) - 1)
