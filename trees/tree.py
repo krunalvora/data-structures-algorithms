@@ -26,7 +26,7 @@ if __name__ == "__main__":
     bst.left.right = TreeNode(3)
     bst.right.left = TreeNode(5)
     bst.right.right = TreeNode(7)
-    inorder(bst)
+    postorder(bst)
     # print lca(root, 4, 2).val
 
     # bt
