@@ -56,6 +56,13 @@ def preorder(root):
     preorder(root.left)
     preorder(root.right)
 
+def inorder(root):
+    if root == None:
+        return None
+    inorder(root.left)
+    print root.val
+    inorder(root.right)
+
 
 if __name__ == "__main__":
     root = TreeNode(1)
@@ -65,5 +72,12 @@ if __name__ == "__main__":
     root.left.right = TreeNode(5)
     root.right.left = TreeNode(6)
     root.right.right = TreeNode(7)
-    # preorder(root)
-    print lca(root, 4, 2).val
+    inorder(root)
+    # print lca(root, 4, 2).val
+
+
+    #       1
+    #      / \
+    #     2   3
+    #    / \ / \
+    #   4  5 6  7
