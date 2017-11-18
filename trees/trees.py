@@ -63,6 +63,14 @@ def inorder(root):
     print root.val
     inorder(root.right)
 
+def postorder(root):
+    if root == None:
+        return None
+    postorder(root.left)
+    postorder(root.right)
+    print root.val
+
+
 
 if __name__ == "__main__":
     root = TreeNode(1)
@@ -72,7 +80,7 @@ if __name__ == "__main__":
     root.left.right = TreeNode(5)
     root.right.left = TreeNode(6)
     root.right.right = TreeNode(7)
-    inorder(root)
+    postorder(root)
     # print lca(root, 4, 2).val
 
 
