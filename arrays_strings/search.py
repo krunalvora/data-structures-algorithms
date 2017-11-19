@@ -1,4 +1,6 @@
 def binary_search(arr, target):
+    """ Return the index of the target in the arr is present
+        If not present, return the index where the element should be inserted in arr""" 
     if arr[0] > target or arr[len(arr) - 1] < target:
         return -1
     start, end = 0, len(arr) - 1
@@ -14,6 +16,7 @@ def binary_search(arr, target):
             # Target resides on the right hand side
             start = mid + 1
     return -1
+
 
 if __name__ == "__main__":
     arr = [2,3,6,9,4,1,52]
