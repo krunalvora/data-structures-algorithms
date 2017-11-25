@@ -1,3 +1,5 @@
+from tree import *
+
 # Traversing the tree root first
 def preorder(root):
     if root == None:
@@ -7,7 +9,7 @@ def preorder(root):
     preorder(root.right)
 
 def inorder(root):
-    if root == None:
+    if not root:
         return None
     inorder(root.left)
     print root.val
@@ -19,3 +21,7 @@ def postorder(root):
     postorder(root.left)
     postorder(root.right)
     print root.val
+
+if __name__ == "__main__":
+    bst = generate_bst()
+    inorder(bst)

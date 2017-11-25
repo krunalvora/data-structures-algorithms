@@ -13,10 +13,10 @@ def level_by_level_linked_lists(root):
         current = queue.dequeue()
         # print "Current: ", current
         if current is None:
-            if queue.isEmpty():
-                break
+            # if queue.isEmpty():
+            #     break
             # Do something
-            queue.enqueue(None)
+            queue.enqueue(None) if not queue.isEmpty()
             sys.stdout.write("\n")
         else:
             if current.left:

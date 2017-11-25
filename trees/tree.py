@@ -8,8 +8,7 @@ class TreeNode:
         self.right = None
         self.val = val
 
-
-if __name__ == "__main__":
+def generate_bt():
     bt = TreeNode(1)
     bt.left = TreeNode(2)
     bt.right = TreeNode(3)
@@ -17,8 +16,9 @@ if __name__ == "__main__":
     bt.left.right = TreeNode(5)
     bt.right.left = TreeNode(6)
     bt.right.right = TreeNode(7)
-    # postorder(root)
+    return bt
 
+def generate_bst():
     bst = TreeNode(4)
     bst.left = TreeNode(2)
     bst.right = TreeNode(6)
@@ -26,6 +26,13 @@ if __name__ == "__main__":
     bst.left.right = TreeNode(3)
     bst.right.left = TreeNode(5)
     bst.right.right = TreeNode(7)
+    return bst
+
+if __name__ == "__main__":
+    bt = generate_bt()
+    # postorder(root)
+
+    bst = generate_bst()
     postorder(bst)
     # print lca(root, 4, 2).val
 
